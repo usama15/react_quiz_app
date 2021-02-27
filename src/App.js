@@ -1,40 +1,31 @@
 import React from 'react'
 import './App.css';
 import Navbar from "./component/MenuAppBar"
-// import Registration from "./component/Registration"
 import theme from "./component/AppBarStyle";
 import {MuiThemeProvider} from "@material-ui/core";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Registration from "./component/Registration";
-import Users from "./pages/Users";
-import Home from "./pages/Home";
+import Users from "./pages/Quiz";
+import Home from "./pages/Home"
+import Quiz from "./pages/Quiz";
 
 class App extends React.Component{
     render() {
         return(
-            <Router>
+            <Router >
                 <MuiThemeProvider theme={theme}>
-                <Navbar/>
+                    <Navbar />
+                    <Switch>
+                        <Route exact path="/" component={Home} ></Route>
+                        <Route exact path="/signup" component={Registration}></Route>
+                        <Route path="/users" component={Users}>Users</Route>
+                    </Switch>
                 </MuiThemeProvider>
-                {/*<Registration/>*/}
-                <Switch>
-                     <Route exact path="/">
-                        <Home />
-                     </Route>
-                    <Route exact path="/signup">
-                        {/*<About />*/}
-                        <Registration/>
-                    </Route>
-                    <Route path="/users">
-                        <Users />
-                    </Route>
-
-                </Switch>
+                <Quiz/>
 
             </Router>
         )

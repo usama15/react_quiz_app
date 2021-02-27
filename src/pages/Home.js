@@ -1,14 +1,14 @@
 import React from "react";
-import {BrowserRouter as Router} from "react-router-dom";
+// import {Link ,BrowserRouter as Router} from "react-router-dom";
 
 class Home extends React.Component{
     render() {
         return(
-            <Router>
-                <h1>
+           <div>
+               <h1>
                    Home
-                </h1>
-            </Router>
+               </h1>
+           </div>
         )
     }
 }

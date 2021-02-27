@@ -9,7 +9,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import "./style.css"
-import { Link, BrowserRouter as Router } from "react-router-dom"
+import { Link, } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MenuAppBar() {
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
+  const [auth, ] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -44,15 +44,18 @@ export default function MenuAppBar() {
   };
 
   return (
-    <Router className={classes.root} >
+    <div className={classes.root} >
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            JavaScript
-          </Typography>
+           <Link class="link" to="/">
+              Home
+           </Link>
+           </Typography>
+
           {auth && (
             <div>
               <IconButton
@@ -79,15 +82,20 @@ export default function MenuAppBar() {
                 open={open}
                 onClose={handleClose}
               >
-                <Link to="/signup" >
-                  <MenuItem  onClick={handleClose}>Sign Up</MenuItem>
-                </Link>
+                <MenuItem onClick={handleClose}>
+                  <Link class="link" to="/signup" >
+                    Sign Up
+                  </Link>
+                </MenuItem>
+                {/*<Link to="/signup" >*/}
+                {/*  <MenuItem  onClick={handleClose}>Sign Up</MenuItem>*/}
+                {/*</Link>*/}
                 <MenuItem onClick={handleClose}>Sign In</MenuItem>
               </Menu>
             </div>
           )}
         </Toolbar>
       </AppBar>
-    </Router>
+    </div>
   );
 }

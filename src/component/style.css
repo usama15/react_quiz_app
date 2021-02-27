@@ -1,4 +1,4 @@
-.root{
-   background: aqua!important;
-      /*linear-gradient(180deg, rgba(169,198,217,1) 15%, rgba(242,167,75,1) 90%) !important;*/
+.link{
+   text-decoration: none;
+   color: black;
 }
